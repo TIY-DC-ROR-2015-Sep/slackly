@@ -3,6 +3,7 @@
     <tr>
       <th>Id</th>
       <th>Message</th>
+      <th></th>
     </tr>
   </thead>
   <tbody class="message-list"></tbody>
@@ -12,5 +13,8 @@
   <tr>
     <td>{{id}}</td>
     <td>{{text}}</td>
+    <td>
+      <button class="btn btn-default favorite-btn" data-id="{{id}}">Favorite</button>
+    </td>
   </tr>
 </script>
