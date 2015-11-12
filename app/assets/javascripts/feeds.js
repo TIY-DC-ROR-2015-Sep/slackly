@@ -10,11 +10,16 @@ function attachMessages(list) {
 
 function populateListWithData(list, messages) {
   // list.innerHTML = "<li>It works!</li>";
+  var source = document.querySelector("#message-list-entry").innerText
+  var template = Handlebars.compile(source);
+
   messages.forEach(function(m) {
-    list.innerHTML += "<li>" + m.text + "</li>"
+    list.innerHTML += template({
+      id:   m.id,
+      text: m.text
+    })
   })
 }
-
 
 
 window.addEventListener("load", function() {
@@ -23,7 +28,7 @@ window.addEventListener("load", function() {
     setInterval(function() {
       attachMessages(messageList);
     }, 5000)
-    
+
     attachMessages(messageList);
   }
 });
