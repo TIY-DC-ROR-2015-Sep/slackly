@@ -14,10 +14,7 @@ function populateListWithData(list, messages) {
   var template = Handlebars.compile(source);
 
   messages.forEach(function(m) {
-    list.innerHTML += template({
-      id:   m.id,
-      text: m.text
-    })
+    list.innerHTML += template(m)
   })
 }
 

@@ -1,5 +1,16 @@
-<ul class="message-list"></ul>
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Message</th>
+    </tr>
+  </thead>
+  <tbody class="message-list"></tbody>
+</table>
 
 <script id="message-list-entry" type="text/x-handlebars-template">
-  <li>Message {{id}}: {{text}}</li>
+  <tr>
+    <td>{{id}}</td>
+    <td>{{text}}</td>
+  </tr>
 </script>
