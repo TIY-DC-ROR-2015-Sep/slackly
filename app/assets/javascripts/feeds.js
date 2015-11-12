@@ -15,9 +15,15 @@ function populateListWithData(list, messages) {
   })
 }
 
+
+
 window.addEventListener("load", function() {
   var messageList = document.querySelector(".message-list");
   if (messageList) {
+    setInterval(function() {
+      attachMessages(messageList);
+    }, 5000)
+    
     attachMessages(messageList);
   }
 });
