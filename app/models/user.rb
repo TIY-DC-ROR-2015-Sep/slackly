@@ -10,7 +10,12 @@ class User < ActiveRecord::Base
 
   def self.from_omniauth auth
     User.where(email: auth.info.email).first_or_create! do |u|
-      # u.slack_data = auth.to_h
+      u.slack_data = auth.to_h
+      u.password   = Devise.friendly_token
     end
+  end
+
+  def slack_token
+    slack_data["credentials"]["token"]
   end
 end
