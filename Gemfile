@@ -17,6 +17,10 @@ gem 'twitter-bootstrap-rails'
 gem 'bootstrap_form'
 gem 'slim-rails'
 
+gem 'omniauth'
+gem 'omniauth-slack'
+gem 'figaro'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
