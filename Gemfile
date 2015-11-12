@@ -20,6 +20,7 @@ gem 'slim-rails'
 gem 'omniauth'
 gem 'omniauth-slack'
 gem 'figaro'
+gem 'httparty'
 
 group :development do
   gem 'better_errors'

@@ -13,9 +13,17 @@ class User < ActiveRecord::Base
     u.password ||= Devise.friendly_token
     u.slack_data = auth.to_h
     u.save!
+    u
   end
 
   def slack_token
     slack_data["credentials"]["token"]
+  end
+
+  def pull_messages room
+    HTTParty.post "https://slack.com/api/channels.history", query: {
+      token: slack_token,
+      channel: room
+    }
   end
 end
