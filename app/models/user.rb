@@ -21,9 +21,9 @@ class User < ActiveRecord::Base
   end
 
   def pull_messages room
-    HTTParty.post "https://slack.com/api/channels.history", query: {
-      token: slack_token,
-      channel: room
-    }
+    s = Slack.new slack_token
+    s.messages_from_room(room).each do |m|
+      Message.where(text: m["text"]).first_or_create!
+    end
   end
 end
