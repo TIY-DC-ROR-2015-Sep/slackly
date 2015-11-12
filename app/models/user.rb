@@ -9,10 +9,10 @@ class User < ActiveRecord::Base
   has_many :favorite_messages, through: :favorites, source: :message
 
   def self.from_omniauth auth
-    User.where(email: auth.info.email).first_or_create! do |u|
-      u.slack_data = auth.to_h
-      u.password   = Devise.friendly_token
-    end
+    u = User.where(email: auth.info.email).first_or_initialize
+    u.password ||= Devise.friendly_token
+    u.slack_data = auth.to_h
+    u.save!
   end
 
   def slack_token
